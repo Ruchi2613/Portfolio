@@ -108,11 +108,10 @@ li a:hover::before{
     transform: scale(1.03);
 }
 
-.menu-icon{
+#menu-icon {
     font-size: 2rem;
     display: none;
     cursor: pointer;
-
 }
 
 section{
@@ -498,8 +497,6 @@ footer ul li a{
         gap: 1rem;
     }
 } */
-
-
 @media(max-width:600px) {
     header #menu-icon {
         display: block;
@@ -507,17 +504,17 @@ footer ul li a{
 
     .nav-links {
         position: absolute;
-        top: 100px; 
+        top: 100px; /* Fixed unit */
         margin-top: 1rem;
         width: 100%;
         padding: 1rem;
         color: white;
-        display: none;
+        display: none; /* Removed duplicate display: flex */
         flex-direction: column;
         text-align: center;
         background: rgba(0, 0, 0, 0.9);
         border-radius: 3rem;
-        transition: all 0.3s ease-in-out; 
+        transition: all 0.3s ease-in-out; /* Added smooth transition */
     }
 
     .nav-links li {
@@ -531,7 +528,7 @@ footer ul li a{
 
     header {
         padding: 1rem 5rem;
-        gap: 2rem;
+        gap: 2rem; /* Reduced gap for smaller screens */
     }
 
     header .logo {
@@ -544,7 +541,7 @@ footer ul li a{
 
     .input-box input {
         padding: 0.5rem 3rem;
-        width: calc(100% - 6rem);
+        width: calc(100% - 6rem); /* Adjusted to fit smaller screens */
         font-size: 1.5rem;
     }
 
@@ -553,7 +550,18 @@ footer ul li a{
     }
 
     footer ul {
-        display: flex;
+        display: flex; /* Ensure gap works */
         gap: 1rem;
     }
+}
+
+
+#message{
+    position: relative;
+    border-radius: 3rem;
+    border: 2px solid black;
+    padding: 8rem;
+    font-size: 3rem;
+    width: 101%;
+    box-sizing: border-box;
 }

@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <script type="text/javascript"
+    <!-- <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
+</script> -->
 <script type="text/javascript">
    (function(){
       emailjs.init({
@@ -60,7 +60,7 @@
                 <div class = "text">
                     <h3>Hi, I'm</h3>
                     <h1>Ruchi Pandey</h1>
-                    <span>UI/UX Designer and Data Engineer</span>
+                    <span>Data Engineer and Data Analyst</span>
                 </div>
             
                 <div class="btn-group">
@@ -96,33 +96,42 @@
                     <i class="fa-solid fa-database"></i>
                     <span>Data Engineer</span>
                     <h3>1 Year</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                        Odio eaque repellat impedit totam ea debitis expedita mollitia 
-                        est nesciunt tempore dolor, nobis perspiciatis
-                        at unde exercitationem corporis tenetur consectetur.
-                        Rem!</p>
+                    <p>At <b>Gusto</b>, I worked as a Data Engineer, where I design 
+                        and enhance data pipelines that simplify and accelerate data integration.
+                         By leveraging tools like Spark and Redshift, I improved query performance by 
+                         30% and reduced data processing time by 25%. Collaborating with cross-functional teams, 
+                         I contributed to key business intelligence projects that enabled more accurate and 
+                         timely decision-making
+                        , resulting in a 20% boost in reporting efficiency.</p>
                 </div>
 
                 <div class="grid-card">
                     <i class="fa-solid fa-magnifying-glass-chart"></i>
                     <span>Data Analyst</span>
                     <h3>6 months</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                        Odio eaque repellat impedit totam ea debitis expedita mollitia 
-                        est nesciunt tempore dolor, nobis perspiciatis
-                        at unde exercitationem corporis tenetur consectetur.
-                        Rem!</p>
+                    <p>At <b>SMCP</b> as a Data Analyst, I automated daily sales reporting for 
+                        the Finance department using Python, reducing manual effort by 40% and 
+                        minimizing reporting errors by 35%. I also developed Tableau dashboards 
+                        that allowed stakeholders to access insights faster, improving decision-making 
+                        speed by 25%. These initiatives helped streamline processes and created a 
+                        more data-driven culture within the organization
+
+                    </p>
                 </div>
 
                 <div class="grid-card">
                     <i class="fa-solid fa-magnifying-glass-chart"></i>
                     <span>Data Analyst</span>
                     <h3>2 Years 6 months</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                        Odio eaque repellat impedit totam ea debitis expedita mollitia 
-                        est nesciunt tempore dolor, nobis perspiciatis
-                        at unde exercitationem corporis tenetur consectetur.
-                        Rem!</p>
+                    <p>At <b>Western Union,</b> I focused on optimizing data pipelines and
+                         analysis workflows, leading to a 30% improvement in reporting accuracy 
+                         and a 20% reduction in data retrieval time. By refining SQL queries and 
+                         implementing efficient ETL processes,
+                          I ensured seamless data flow between systems.
+                           My work supported teams in leveraging data effectively,
+                            which contributed to better operational efficiency across departments.
+
+                    </p>
                 </div>
 
             </div>
@@ -190,34 +199,79 @@
 
     </section>
 
-    <!-- Section: Contact -->
-    <section class="contact" id="contact">
+<!-- Section: Contact -->
+<section class="contact" id="contact">
+    <form id="contact-form" action="https://formsubmit.co/6ab67a755b9a45b36f20b52626d3cf38" method="POST">
+        <!-- Hidden inputs for FormSubmit settings -->
+        <input type="hidden" name="_next" value="#">
+        <input type="hidden" name="_captcha" value="false">
+        
         <div class="input-box">
             <h2 class="section-title">Contact Me</h2>
-
+            
             <div class="input">
                 <input type="text" name="name" id="name" placeholder="Name" required>
-                <i class="fa-solid fa-envelope"></i>
+                <i class="fa-solid fa-user"></i>
             </div>
-
+    
             <div class="input">
-                <input type="text" name="email" id="email" placeholder="example@gmail.com" required>
+                <input type="email" name="email" id="email" placeholder="example@gmail.com" required>
                 <i class="fa-solid fa-envelope"></i>
             </div>
-
+    
             <div class="input">
-                <input type="text" name="subject" id="subject" placeholder="subject" required>
-                <i class="fa-solid fa-envelope"></i>
+                <input type="text" name="subject" id="subject" placeholder="Subject" required>
+                <i class="fa-solid fa-tag"></i>
             </div>
-
+    
             <div class="input">
-                <input type="text" name="message" id="message" placeholder="message" required>
-                <i class="fa-solid fa-envelope"></i>
+                <textarea name="message" id="message" placeholder="Message" rows="1"></textarea>
+                <i class="fa-solid fa-comment"></i>
             </div>
-
-            <div class="btn" onclick="sendMail()">Submit</div>
+    
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Submit</button>
         </div>
-    </section>
+    </form>
+
+    
+
+    <div id="thank-you-message" style="display: none;">
+        <h1>Thank You for Your Message!</h1>
+        <p>We appreciate you getting in touch. We will respond as soon as possible.</p>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contact-form');
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); //Prevent form from submitting and redirecting
+
+            //Perform form submission using fetch
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // If the form submission was successful, show the "Thank You" message
+                    document.getElementById('thank-you-message').style.display = 'block';
+                    form.style.display = 'none'; // Hide the form
+                } else {
+                    // If there's an error, show an alert
+                    alert('Something went wrong. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting your form. Please try again later.');
+            });
+        });
+    });
+</script>
+
 
     <footer>
         <ul>
