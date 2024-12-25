@@ -1,8 +1,6 @@
-const menuIcon = document.querySelector('#menu-icon');
+const menuIcon = document.getElementById('menu-icon');
 const navLinks = document.querySelector('.nav-links');
 
-
-menuIcon.onclick = () =>{
-    navLinks.classList.toggle('active');
-}
-
+menuIcon.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // Toggles a class to show/hide the menu
+});

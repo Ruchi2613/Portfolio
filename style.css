@@ -9,6 +9,7 @@
 
 }
 
+
 header{
     position: fixed;
     top: 1rem;
@@ -402,6 +403,7 @@ footer ul li a{
 
 
 @media(max-width:768px){
+    
     header{
         padding: 1rem 1rem;
         gap: 1rem;
@@ -438,6 +440,13 @@ footer ul li a{
 
     .experience-info img{
         width: 70vw;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+    .nav-links {
+        display: none;
     }
 }
 /* 
@@ -523,7 +532,9 @@ footer ul li a{
     }
 
     .nav-links.active {
-        display: block;
+        display: flex;
+        flex-direction: column;
+
     }
 
     header {
